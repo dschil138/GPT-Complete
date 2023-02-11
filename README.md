@@ -63,3 +63,5 @@ The program will work right out of the box, but there are several user-settable 
     - *IE:  `CMD-Enter` would send prompt to DaVinci, `CMD-Shift-Enter` would send prompt to Curie*
 
 - Add option to prepend a string to any text that is sent to the model.
+
+- Be able to run the program as a menu bar item, not as a python script. Ideally one that can be installed as a daemon to run at startup

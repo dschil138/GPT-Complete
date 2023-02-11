@@ -2,3 +2,4 @@
 .vscode/
 ignored/
 __pycache__/
+api_key.py
