@@ -1,8 +1,3 @@
-import openai
-
-# insert your OpenAI key here
-openai.api_key = "YOUR_API_KEY_HERE"
-
 # How unpredicatable do you want the bot to be? 
 creativity = 0.9
 

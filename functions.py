@@ -5,6 +5,7 @@ import pyautogui as pag
 import pyperclip
 
 
+
 def select_input():
     pag.sleep(0.1)
     pyperclip.copy('')

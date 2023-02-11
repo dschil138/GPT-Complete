@@ -1,6 +1,7 @@
 from config import *
-from chatFunctions import *
+from functions import *
 import pynput
+import api_key 
 
 
 while True:
