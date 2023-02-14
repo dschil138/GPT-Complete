@@ -7,7 +7,6 @@ import pyperclip
 pag.PAUSE = 0.15
 
 def select_input():
-    pag.sleep(0.1)
     pyperclip.copy('')
     pag.sleep(0.1)
     pag.hotkey("command", "c", interval=0.1)
@@ -25,7 +24,7 @@ def select_input():
         pag.keyUp("shift")
         pag.sleep(0.1)
         pag.hotkey("command", "c", interval=0.1)
-    pag.sleep(0.15)
+    pag.sleep(0.1)
     pag.hotkey("right")
     pag.hotkey("space")
     return pyperclip.paste()
@@ -42,7 +41,7 @@ def send_to_bot(model_var, prompt_var, creativity_var, max_tokens_var):
         stop=["?"]   
     )
     strippedResponse = response.choices[0].text.strip()
-    pag.sleep(0.15)
+    pag.sleep(0.1)
     return strippedResponse
 
 def write_response(response):
@@ -51,5 +50,5 @@ def write_response(response):
 
 def paste_response(response):
     pyperclip.copy(response)
-    pag.sleep(0.15)
+    pag.sleep(0.1)
     pag.hotkey("command", "v")

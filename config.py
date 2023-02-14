@@ -1,5 +1,5 @@
 # How unpredicatable do you want the bot to be? 
-creativity = 0.9
+creativity = 0.8
 
 
 # The max number of tokens you want to recieve in response. OpenAI charges by the
@@ -9,10 +9,10 @@ max_tokens = 100
 
 # Which model you would like to send your prompts to.
 # The options, from least powerful and cheap, to most powerful and expensive, are:
-# text-001-ada
-# text-001-curie
-# text-001-babbage
-# text-003-davinci
+# text-ada-001
+# text-curie-001
+# text-babbage-001
+# text-davinci-003
 model = "text-davinci-003"
 
 
