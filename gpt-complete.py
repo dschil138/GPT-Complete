@@ -6,21 +6,20 @@ import api_key
 
 while True:
 
-    combination = [pynput.keyboard.Key.cmd, pynput.keyboard.Key.enter]
+    combination = [pynput.keyboard.Key.ctrl, pynput.keyboard.KeyCode.from_char('0')]
     current = set()
 
-    def do_the_thing():
+    def main_function():
         current.clear()
-        userInput = select_input()
-        print('doing the thing')
-        botResponse = sendToBot(userInput, creativity, maxTokens)
-        paste_response(botResponse)
+        user_input = select_input()
+        bot_response = send_to_bot(model, user_input, creativity, max_tokens)
+        paste_response(bot_response)
         current.clear()
 
     def on_press(key):
         current.add(key)
         if all(k in current for k in combination):
-            do_the_thing()
+            main_function()
 
     def on_release(key):
         if key in current:

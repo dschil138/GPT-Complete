@@ -38,7 +38,7 @@ python3 gpt-complete.py
 ```
 
 
-You can now minimize or hide this terminal window.It will run in the background, taking up essentially no memory. Its functions are only activated when the hotkeys are hit.
+You can now minimize or hide this terminal window. It will run in the background, taking up essentially no memory. Its functions are only activated when the hotkeys are hit.
 
 ## Config
 The program will work right out of the box, but there are several user-settable parameters that you can customize located in the config.py file:
@@ -51,7 +51,7 @@ The program will work right out of the box, but there are several user-settable 
 
 **Lines To Send** - If you have text selected already when you hit the hotkey, the program will send that text. Otherwise, it will send the last N lines before your current cursor position.  The default is 4. More lines will get you better results but will also be more expensive, as you are charged for the tokens you send as well as the ones you receive.
 
-**Hotkey** - Currently the hotkey is CMD-Enter. This will be a user configurable variable in future versions. If you feel comfortable enough with Python, you can edit this currently in the main file (GPT-Complete.py)
+<!-- **Hotkey** - Currently the hotkey is CMD-Enter. This will be a user configurable variable in future versions. If you feel comfortable enough with Python, you can edit this currently in the main file (GPT-Complete.py) -->
 
 
 # Future development
@@ -64,4 +64,4 @@ The program will work right out of the box, but there are several user-settable 
 
 - Add option to prepend a string to any text that is sent to the model.
 
-- Be able to run the program as a menu bar item, not as a python script. Ideally one that can be installed as a daemon to run at startup
+- Be able to run the program as a menu bar item, not as a python script.
