@@ -17,7 +17,7 @@ def select_input():
         pag.hotkey("command", "left")
         pag.keyUp("shift")
         pag.keyDown("shift")
-        for i in range(lines_to_send - 1):
+        for i in range(lines_to_send - 2):
             pag.hotkey("left")
             pag.hotkey("up")
         pag.hotkey("command", "left")
@@ -30,19 +30,21 @@ def select_input():
     return pyperclip.paste()
 
 def send_to_bot(model_var, prompt_var, creativity_var, max_tokens_var):
+    print(prompt_var)
+    full_prompt = (f"Continue or finish the following text:\n{prompt_var}")
     response = openai.Completion.create(
         model=model_var,
-        prompt=prompt_var,
+        prompt=full_prompt,
         temperature=creativity_var,
         max_tokens=max_tokens_var,
         top_p=1,
         frequency_penalty=1.2,
-        presence_penalty=1.2,
-        stop=["?"]   
+        presence_penalty=1.2
     )
-    strippedResponse = response.choices[0].text.strip()
+    stripped_response = response.choices[0].text.strip()
+    print(stripped_response)
     pag.sleep(0.1)
-    return strippedResponse
+    return stripped_response
 
 def write_response(response):
     print(response)

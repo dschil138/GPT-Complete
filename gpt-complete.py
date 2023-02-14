@@ -12,6 +12,9 @@ elif(hotkey == 2):
 elif(hotkey == 3):
     combination = [pynput.keyboard.Key.cmd, pynput.keyboard.Key.enter]
 
+elif(hotkey == 4):
+    combination = [pynput.keyboard.Key.cmd, pynput.keyboard.Key.shift, pynput.keyboard.KeyCode.from_char('k')]
+
 current = set()
 
 def main_function():

@@ -10,8 +10,8 @@ max_tokens = 100
 # Which model you would like to send your prompts to.
 # The options, from least powerful and cheap, to most powerful and expensive, are:
 # text-ada-001
-# text-curie-001
 # text-babbage-001
+# text-curie-001
 # text-davinci-003
 model = "text-davinci-003"
 
@@ -26,4 +26,5 @@ lines_to_send = 4
 # 1 == Left Alt + Right Ctrl 
 # 2 == Ctrl + 0
 # 3 == Command + Enter
+# 4 == Command + Shift + K
 hotkey = 1
