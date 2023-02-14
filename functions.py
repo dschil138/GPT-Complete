@@ -30,13 +30,16 @@ def select_input():
     return pyperclip.paste()
 
 def send_to_bot(model_var, prompt_var, creativity_var, max_tokens_var):
-    print(prompt_var)
-    full_prompt = (f"Continue or finish the following text:\n{prompt_var}")
+    try:
+        full_prompt = (f"{prepend}\n{prompt_var}")
+    except:
+        full_prompt = prompt_var
+    print(full_prompt)
     response = openai.Completion.create(
-        model=model_var,
+        model=model,
         prompt=full_prompt,
-        temperature=creativity_var,
-        max_tokens=max_tokens_var,
+        temperature=creativity,
+        max_tokens=max_tokens,
         top_p=1,
         frequency_penalty=1.2,
         presence_penalty=1.2
