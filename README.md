@@ -24,7 +24,7 @@ You can install them using this command
 pip3 install pyperclip pyautogui pynput openai
 ```
 
-Before using this script, you need to add your API key to the config.py file. You can get an API key on OpenAI's site [here](https://openai.com/blog/openai-api/).
+Before using GPT-Complete, you need to get an OpenAI API key and add it to the config.py file. You can get one on OpenAI's site [here](https://openai.com/blog/openai-api/).
 
 Once you've added the API key, you are ready to go!
 
@@ -51,12 +51,15 @@ The program will work right out of the box, but there are several user-settable 
 
 **Lines To Send** - If you have text selected already when you hit the hotkey, the program will send that text. Otherwise, it will send the last N lines before your current cursor position.  The default is 4. More lines will get you better results but will also be more expensive, as you are charged for the tokens you send as well as the ones you receive.
 
-<!-- **Hotkey** - Currently the hotkey is CMD-Enter. This will be a user configurable variable in future versions. If you feel comfortable enough with Python, you can edit this currently in the main file (GPT-Complete.py) -->
+**Hotkey** - choosing a hotkey for this program can be a little tricky. There are currently three options to choose from which have all been tested and work well. 
+    1. Left Alt + Right Ctrl
+    2. Ctrl + 0
+    3. Command + Enter
 
 
 # Future development
 
-- User-configurable hotkeys.
+- More user-configurable hotkeys
 
 - Have separate shortcuts for different models 
 
@@ -64,4 +67,4 @@ The program will work right out of the box, but there are several user-settable 
 
 - Add option to prepend a string to any text that is sent to the model.
 
-- Be able to run the program as a menu bar item, not as a python script.
+- Be able to run the program as a mac menu bar item, not as a python script.
