@@ -29,14 +29,14 @@ def select_input():
     pag.hotkey("space")
     return pyperclip.paste()
 
-def send_to_bot(model_var, prompt_var, creativity_var, max_tokens_var):
+def send_to_bot(model_var, prompt_var):
     try:
         full_prompt = (f"{prepend}\n{prompt_var}")
     except:
         full_prompt = prompt_var
     print(full_prompt)
     response = openai.Completion.create(
-        model=model,
+        model=model_var,
         prompt=full_prompt,
         temperature=creativity,
         max_tokens=max_tokens,

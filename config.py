@@ -18,8 +18,9 @@ max_tokens = 100
 # text-curie-001
 # text-davinci-003
 
-model = "text-curie-001"
+model1 = "text-curie-001"
 
+model2 = "text-davinci-003"
 
 
 # If not manually selecting the prompt, how many lines above the 
@@ -37,7 +38,9 @@ lines_to_send = 4
 # 3 == Command + Enter
 # 4 == Command + Shift + K
 
-hotkey = 4
+hotkey1 = 4
+
+hotkey2 = 2
 
 
 
