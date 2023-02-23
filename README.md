@@ -45,33 +45,35 @@ The program will work right out of the box, but there are several user-settable 
 
 *(there are also comments in the actual python file that provide more info on each)*
 
-**Model** - choose which OpenAI model you would like to send your prompt to. The default is DaVinci (their most powerful model).
+#### Model
+Choose which OpenAI model you would like to send your prompt to. The default is DaVinci (their most powerful model).
 
-**Creativity** - how "creative" and unpredictable you would like the response to be. This corresponds to OpenAI's "temperature" setting, and ranges from 0 to 1. The default here is set to 0.8
+#### Creativity
+How "creative" and unpredictable you would like the response to be. This corresponds to OpenAI's "temperature" setting, and ranges from 0 to 1. The default here is set to 0.8
 
 **Lines To Send** - If you have text selected already when you hit the hotkey, the program will send that text. Otherwise, it will send the last N lines before your current cursor position.  The default is 4. More lines will get you better results but will also be more expensive, as you are charged for the tokens you send as well as the ones you receive.
 
-**Hotkey** - choosing a hotkey for this program can be a little tricky. There are currently four options to choose from which have all been tested and work well. 
+#### Hotkey
+Choosing a hotkey for this program can be a little tricky. There are currently four options to choose from which have all been tested and work well. 
 >**1.** Left Alt + Right Ctrl
 >**2.** Ctrl + 0
 >**3.** Command + Enter
 >**4.** Ctrl + Shift + K
 
-**Prepend** - uncomment this variable if you'd like to prepend a string to all your prompts. This can be helpful if you always want a specific behavior from your completions, for instance, if you want your completions to always have a cheerful demeanor, you could add a prepend string of "finish this text the way a cheerful person would:"
-
-Keep in mind that you are charged for the words you send to the model, as well as the ones you recieve. So don't go too crazy on the prepending.
-
-**Multiple HotKeys for Multiple Models**
+#### Multiple HotKeys for Multiple Models
 you can now define different hotkeys to send your prompt to different models. 
 
 *For example:* if you have a simple list you need completed, you probably don't need the power (and expense) of the DaVinci model. So you could have Ctrl-0 set to send your prompt to the Curie model. But if you are trying to finish a poem, you could hot Ctrl + Shift + K to send the prompt to DaVinci.
 
+#### Prepend
+Uncomment this variable if you'd like to prepend a string to all your prompts. This can be helpful if you always want a specific behavior from your completions, for instance, if you want your completions to always have a cheerful demeanor, you could add a prepend string of "finish this text the way a cheerful person would:"
+
+Keep in mind that you are charged for the words you send to the model, as well as the ones you recieve. So don't go too crazy on the prepending.
+
+
+
 # Future Development
 
 - More user-configurable hotkeys
-
-- Have separate shortcuts for different models 
-
-    - *IE:  `CMD-Enter` would send prompt to DaVinci, `CMD-Shift-Enter` would send prompt to Curie*
 
 - Be able to run the program as a mac menu bar item, not as a python script.

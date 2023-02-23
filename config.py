@@ -51,4 +51,4 @@ hotkey2 = 2
 # Keep in mind that you are charged for the words you SEND to the model, as well as the
 # ones you recieve.
 
-# prepend = "finish this text:"
+universal_prepend = ""

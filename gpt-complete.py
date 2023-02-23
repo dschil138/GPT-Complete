@@ -33,9 +33,11 @@ current = set()
 
 def main_function(chosenModel):
     current.clear()
+    is_gmail = check_gmail()
+    full_prepend = create_full_prepend(is_gmail)
     user_input = select_input()
     print('sending to API')
-    botResponse = send_to_bot(chosenModel, user_input)
+    botResponse = send_to_bot(full_prepend, chosenModel, user_input)
     paste_response(botResponse)
 
 def on_press(key):
