@@ -3,41 +3,52 @@ import time
 from config import *
 import pyautogui as pag
 import pyperclip
-# from bs4 import BeautifulSoup
-from AppKit import NSWorkspace
-import re
-import subprocess
+from AppKit import NSWorkspace, NSAppleScript
 
 
-
-def check_gmail():
-    # Get the shared workspace
-
+# check open apps for Chrome
+def check_apps_for_chrome():
     workspace = NSWorkspace.sharedWorkspace()
+    running_apps = workspace.runningApplications()
+    chrome_open = False
+    chrome_active = False
+    for app in running_apps:
+        if app.bundleIdentifier() == "com.google.Chrome":
+            print("Google Chrome is active.")
+            return True
 
-    # Get the URL of the currently active webpage in Chrome
-    chrome_bundle_identifier = "com.google.Chrome"
-    chrome_app = workspace.frontmostApplication()
-    if chrome_app.bundleIdentifier() == chrome_bundle_identifier:
-        # Get the process ID of the Chrome process
-        chrome_pid = chrome_app.processIdentifier()
-        # Get the URL of the active tab in Chrome
-        cmd = f"osascript -e 'tell application \"Google Chrome\" to get the URL of active tab of window 1'"
-        output = subprocess.check_output(cmd, shell=True)
-        current_url = output.decode("utf-8").strip()
-        if "gmail" in current_url:
-            print("in gmail")
+
+# check open tabs for gmail
+def check_tabs_for_gmail(tab_wanted):
+    script = NSAppleScript.alloc().initWithSource_("""
+        tell application "Google Chrome"
+            return URL of active tab of front window
+        end tell
+        """)
+    result, error = script.executeAndReturnError_(None)
+    if error:
+        print(error)
+    else:
+        print(result.stringValue())
+        tabs_string = result.stringValue()
+        if tabs_string.find(tab_wanted) != -1:
+            print("found gmail")
             return True
         else:
-            print("not in gmail")
             return False
-    else:
-            print("not in gmail")
-            return False
-        
 
-def create_full_prepend(in_gmail):
-    if in_gmail is True:
+
+
+def check_system_for_gmail(website_wanted):
+    if check_apps_for_chrome():
+        if check_tabs_for_gmail(website_wanted):
+            print("gmail is active")
+            return True
+    else:
+        print("Google Chrome is not active.")
+
+def create_full_prepend(website_wanted):
+    if check_system_for_gmail(website_wanted):
         print("gmail was true")
         full_prepend = (universal_prepend + "finish this email")
     else:

@@ -33,8 +33,7 @@ current = set()
 
 def main_function(chosenModel):
     current.clear()
-    is_gmail = check_gmail()
-    full_prepend = create_full_prepend(is_gmail)
+    full_prepend = create_full_prepend("mail.google.com")
     user_input = select_input()
     print('sending to API')
     botResponse = send_to_bot(full_prepend, chosenModel, user_input)
@@ -53,6 +52,5 @@ def on_release(key):
         current.remove(key)
 
 while True:
-
     with pynput.keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
