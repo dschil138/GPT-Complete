@@ -7,7 +7,7 @@ creativity = 0.8
 # The max number of tokens you want to recieve in response. OpenAI charges by the
 # token so this variable is important to keeping your costs down.
 
-max_tokens = 100
+max_tokens = 300
 
 
 
@@ -17,10 +17,12 @@ max_tokens = 100
 # text-babbage-001
 # text-curie-001
 # text-davinci-003
+# ---
+# code-davinci-002 (this one is for code completions, and is currently free while in beta)
 
-model1 = "text-curie-001"
+model1 = "text-ada-001"
 
-model2 = "text-davinci-003"
+model2 = "-davinci-002"
 
 
 # If not manually selecting the prompt, how many lines above the 

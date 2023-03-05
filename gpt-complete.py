@@ -33,10 +33,9 @@ current = set()
 
 def main_function(chosenModel):
     current.clear()
-    full_prepend = create_full_prepend("mail.google.com")
-    user_input = select_input()
+    user_input = check_and_select_input()
     print('sending to API')
-    botResponse = send_to_bot(full_prepend, chosenModel, user_input)
+    botResponse = send_to_bot(universal_prepend, chosenModel, user_input)
     paste_response(botResponse)
 
 def on_press(key):
@@ -52,5 +51,6 @@ def on_release(key):
         current.remove(key)
 
 while True:
+
     with pynput.keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
