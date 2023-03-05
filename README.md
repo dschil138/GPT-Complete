@@ -17,11 +17,12 @@ GPT-Complete uses these dependencies:
 - pyautogui
 - pynput
 - openai
+- regex
 
 You can install them using this command
 
 ```bash
-pip3 install pyperclip pyautogui pynput openai
+pip3 install pyperclip pyautogui pynput openai regex
 ```
 
 Before using GPT-Complete, you need to get an OpenAI API key and add it to the config.py file. You can get one on OpenAI's site [here](https://openai.com/blog/openai-api/).
@@ -37,8 +38,10 @@ The program needs to run in the background. Open a terminal window, navigate to 
 python3 gpt-complete.py
 ```
 
-
 You can now minimize or hide this terminal window. It will run in the background, taking up essentially no memory. Its functions are only activated when the hotkeys are hit.
+
+### How Many Lines To Select
+You can now tell the model how many lines above your cursor to select by simply typing it before you hit the hotkey. If you want to select 15 lines, put it between two colons like this - :15: (this needs to be the last thing typed before the cursor). The model will read the number and select that many lines. If you do not set this number, the program will use  "lines_to_send" variable in the config.py file to decide how many lines it will select. The default is 5.oo
 
 ## Config
 The program will work right out of the box, but there are several user-settable parameters that you can customize located in the config.py file:

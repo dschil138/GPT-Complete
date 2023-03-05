@@ -19,7 +19,7 @@ def extract_number(input_text):
 def check_for_highlighted_text():
     print("check_for_highlighted_text")
     pyperclip.copy('')
-    pag.sleep(0.1)
+    pag.sleep(0.3)
     pag.hotkey("command", "c", interval=0.1)
     current_selection=pyperclip.paste()
     pag.sleep(0.1)
@@ -28,7 +28,9 @@ def check_for_highlighted_text():
         return False
     else:
         print("selected text found")
-        return pyperclip.paste()
+        selected_text = pyperclip.paste()
+        pag.hotkey("right")
+        return selected_text
     
 
 def check_for_typed_number():
@@ -112,7 +114,8 @@ def send_to_bot(prepend_var, model_var, prompt_var):
     except:
         full_prompt = cut_prompt
         print(f"\nEXCEPT CLAUSE FULL PROMPT: {full_prompt}\n")
-    print(f"\n\FULL PROMPT: {full_prompt}\n\n")
+    print("FULL PROMPT:")
+    print(full_prompt)
     response = openai.Completion.create(
         model=model_var,
         prompt=full_prompt,
@@ -123,6 +126,7 @@ def send_to_bot(prepend_var, model_var, prompt_var):
         presence_penalty=1.2
     )
     stripped_response = response.choices[0].text.strip()
+    print("RESPONSE:")
     print(stripped_response)
     pag.sleep(0.1)
     return stripped_response

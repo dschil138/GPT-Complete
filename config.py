@@ -20,7 +20,7 @@ max_tokens = 300
 # ---
 # code-davinci-002 (this one is for code completions, and is currently free while in beta)
 
-model1 = "text-ada-001"
+model1 = "text-davinci-003"
 
 model2 = "-davinci-002"
 
@@ -28,7 +28,7 @@ model2 = "-davinci-002"
 # If not manually selecting the prompt, how many lines above the 
 # current cursor position do you want to send as the prompt
 
-lines_to_send = 4
+lines_to_send = 5
 
 
 
