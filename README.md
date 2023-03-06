@@ -1,4 +1,4 @@
-![GPT-Complete logo](photos/GPT-Complete-logo-clear-2.png)
+![GPT-Complete logo](photos/GPT-Complete-logo-clear-3.png)
 
 # Description
 GPT-Complete allows you to incorporate OpenAI's GPT into your workflow with the touch of a button.
@@ -45,25 +45,23 @@ You can now minimize or hide this terminal window.
 ## Config
 The program will work right out of the box, but there are several user-settable parameters. Some of can be set in the menu in the menu bar, others are set in the config.py file
 
-#### How Many Lines To Select (config file)
+### How Many Lines To Select (config file)
 You can now tell the model how many lines above your cursor to select by simply typing it before you hit the hotkey. If you want to select 15 lines, put it between two colons like this - **:15:** (this needs to be the last thing typed before the cursor). The model will read the number and select that many lines.
 
 If you do not set this number by typing it, the program will use "lines_to_send" variable in the config file to decide how many lines it will select. The default is 6.
 
 As always, you can also just select the text you want to send before you hit the hotkey.
 
-#### Model (Menu)
+### Model (Menu)
 Choose which OpenAI model you would like to send your prompt to. The default is DaVinci (their most powerful model).
 
-#### Max Tokens (Menu)
+### Max Tokens (Menu)
 Upper limit on how many tokens the model should return in it's response. Current options are 100, 250, 500, and 800
   
-#### Creativity (config file)
+### Creativity (config file)
 How "creative" and unpredictable you would like the response to be. This corresponds to OpenAI's "temperature" setting, and ranges from 0 to 1. The default here is set to 0.8
 
-**Lines To Send** - If you have text selected already when you hit the hotkey, the program will send that text. Otherwise, it will send the last N lines before your current cursor position.  The default is 4. More lines will get you better results but will also be more expensive, as you are charged for the tokens you send as well as the ones you receive.
-
-#### Hotkey (Menu)
+### Hotkey (Menu)
 Choosing a hotkey for this program can be a little tricky. There are currently four options to choose from which have all been tested and work well. 
 >**1.** Left Alt + Right Ctrl
 >**2.** Ctrl + 0
@@ -74,5 +72,4 @@ Choosing a hotkey for this program can be a little tricky. There are currently f
 # Future Development
 
 - Move all config options to the Menu
-
 - Add more dynamically-typed options like the :linesNumber: is now
