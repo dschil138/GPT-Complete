@@ -37,10 +37,6 @@ def check_for_typed_number():
     print("check_for_typed_number")
     pag.sleep(0.1)
     pag.keyDown("shift")
-    pag.hotkey("command", "left")
-    pag.keyUp("shift")
-    pag.keyDown("shift")
-    pag.hotkey("left")
     pag.hotkey("up")
     pag.keyUp("shift")
     pag.sleep(0.1)
@@ -128,8 +124,10 @@ def send_to_bot(prepend_var, model_var, prompt_var):
     stripped_response = response.choices[0].text.strip()
     print("RESPONSE:")
     print(stripped_response)
-    pag.sleep(0.1)
-    return stripped_response
+    if stripped_response == "":
+        return "-"
+    else:
+        return stripped_response
 
 
 def write_response(response):
@@ -138,6 +136,7 @@ def write_response(response):
 
 
 def paste_response(response):
+    pag.hotkey("enter")
     pyperclip.copy(response)
     pag.sleep(0.1)
     pag.hotkey("command", "v")

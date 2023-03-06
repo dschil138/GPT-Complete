@@ -20,7 +20,7 @@ max_tokens = 300
 # ---
 # code-davinci-002 (this one is for code completions, and is currently free while in beta)
 
-model1 = "text-davinci-003"
+model1 = "text-babbage-001"
 
 model2 = "-davinci-002"
 
