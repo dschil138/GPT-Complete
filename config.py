@@ -8,9 +8,13 @@ creativity = 0.8
 
 max_tokens = 300
 
+# default model if user doesn't select one in menu
+model1 = "text-davinci-003"
 
 # If not manually selecting the prompt, how many lines above the 
 # current cursor position do you want to send as the prompt
 
 lines_to_send = 6
 
+
+universal_prepend = ""

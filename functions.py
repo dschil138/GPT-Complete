@@ -100,7 +100,7 @@ def check_and_select_input():
             return select_input(lines_to_send)
 
 
-def send_to_bot(prepend_var, model_var, prompt_var):
+def send_to_bot(prepend_var, model_var, prompt_var, tokens_var):
     cut_prompt = remove_numbers_and_colons_from_end(prompt_var)
     print(f"\nCUT PROMPT: {cut_prompt}\n")
     try:
@@ -113,10 +113,10 @@ def send_to_bot(prepend_var, model_var, prompt_var):
     print("FULL PROMPT:")
     print(full_prompt)
     response = openai.Completion.create(
-        model=model_var,
+        engine=model_var,
         prompt=full_prompt,
         temperature=creativity,
-        max_tokens=max_tokens,
+        max_tokens=tokens_var,
         top_p=1,
         frequency_penalty=1.2,
         presence_penalty=1.2
@@ -136,6 +136,9 @@ def write_response(response):
 
 
 def paste_response(response):
+    pag.sleep(0.2)
+    pag.hotkey("enter")
+    pag.sleep(0.1)
     pag.hotkey("enter")
     pyperclip.copy(response)
     pag.sleep(0.1)

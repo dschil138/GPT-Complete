@@ -3,10 +3,13 @@ import pynput
 from config import *
 from functions import *
 import api_key 
+
 class MyApp(rumps.App):
     def __init__(self):
         super(MyApp, self).__init__("⚡️")
         self.combination1 = [pynput.keyboard.Key.cmd, pynput.keyboard.Key.shift, pynput.keyboard.KeyCode.from_char('k')]
+        self.tokens = 250
+        self.model = model1
         self.current = set()
         self.listener = None
 
@@ -75,35 +78,36 @@ class MyApp(rumps.App):
         self.model1 = "text-davinci-003"
         self.ada_menu_item.state, self.babbage_menu_item.state, self.curie_menu_item.state, self.davinci_menu_item.state, self.codex_menu_item.state = False, False, False, True, False
     def use_codex(self, sender):
-        self.model1 = "text-codex-002"
+        self.model1 = "code-davinci-002"
         self.ada_menu_item.state, self.babbage_menu_item.state, self.curie_menu_item.state, self.davinci_menu_item.state, self.codex_menu_item.state = False, False, False, False, True
 
     def use_100_tokens(self, sender):
-        self.model1 = "text-babbage-001"
-        self.use_100_tokens.state, self.use_250_tokens.state, self.use_500_tokens.state, self.use_800_tokens.state = True, False, False, False
+        self.tokens = "100"
+        self.tokens_100_menu_item.state, self.tokens_250_menu_item.state, self.tokens_500_menu_item.state, self.tokens_800_menu_item.state = True, False, False, False
     def use_250_tokens(self, sender):
-        self.model1 = "text-curie-001"
-        self.use_100_tokens.state, self.use_250_tokens.state, self.use_500_tokens.state, self.use_800_tokens.state = False, True, False, False
+        self.tokens = "250"
+        self.tokens_100_menu_item.state, self.tokens_250_menu_item.state, self.tokens_500_menu_item.state, self.tokens_800_menu_item.state = False, True, False, False
     def use_500_tokens(self, sender):
-        self.model1 = "text-davinci-003"
-        self.use_100_tokens.state, self.use_250_tokens.state, self.use_500_tokens.state, self.use_800_tokens.state = False, False, True, False
+        self.tokens = "500"
+        self.tokens_100_menu_item.state, self.tokens_250_menu_item.state, self.tokens_500_menu_item.state, self.tokens_800_menu_item.state = False, False, True, False
     def use_800_tokens(self, sender):
-        self.model1 = "text-codex-002"
-        self.use_100_tokens.state, self.use_250_tokens.state, self.use_500_tokens.state, self.use_800_tokens.state = False, False, False, True
+        self.tokens = "800"
+        self.tokens_100_menu_item.state, self.tokens_250_menu_item.state, self.tokens_500_menu_item.state, self.tokens_800_menu_item.state = False, False, False, True
 
 
-    def main_function(self, model1):
+    def main_function(self, model_var, tokens_var):
         print(model1)
         self.current.clear()
         user_input = check_and_select_input()
         print('sending to API')
-        botResponse = send_to_bot(universal_prepend, model1, user_input)
+        botResponse = send_to_bot(universal_prepend, model_var, user_input, tokens_var)
         paste_response(botResponse)
 
     def on_press(self, key):
         self.current.add(key)
         if all(k in self.current for k in self.combination1):
-            self.main_function(model1)
+            int_tokens = int(self.tokens)
+            self.main_function(self.model1, int_tokens)
 
     def on_release(self, key):
         if key in self.current:

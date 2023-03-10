@@ -42,7 +42,7 @@ The program will work right out of the box, but there are several user-settable 
 ### How Many Lines To Select (config file)
 You can now tell the model how many lines above your cursor to select by simply typing it before you hit the hotkey. If you want to select 15 lines, put it between two colons like this: 
 ```
-to get fifteen lines above this line of text :15:
+this will select seven lines of text :7:
 ```  
 
 This needs to be directly to the left of the cursor.
@@ -64,13 +64,13 @@ How "creative" and unpredictable you would like the response to be. This corresp
 
 ### Hotkey (menu)
 Choosing a hotkey for this program can be a little tricky. There are currently four options to choose from which have all been tested and work well. 
->**1.** Left Alt + Right Ctrl
->**2.** Ctrl + 0
->**3.** Command + Enter
->**4.** Ctrl + Shift + K
+**1.** Left Alt + Right Ctrl
+**2.** Ctrl + 0
+**3.** Command + Enter
+**4.** Ctrl + Shift + K
 
 
 # Future Development
 
 - Move all config options to the Menu
-- Add more "typed" options like :linesNumber: is now
+- Add more "typed" options like :lineToSelect: is now
